@@ -13,9 +13,7 @@
 		"GH_PAGER": ""
 	},
 	// "forwardPorts": [3000, 5432],
-	"postCreateCommand": {
-		"claude": "npm install -g @anthropic-ai/claude-code"
-	},
+	// "postCreateCommand": "",
 	// "customizations": {},
 	"remoteUser": "node",
 	"mounts": [
