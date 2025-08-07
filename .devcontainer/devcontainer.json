@@ -1,0 +1,26 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node-postgres
+{
+	"name": "Container Environment",
+	"dockerComposeFile": "compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"features": {
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
+		"ghcr.io/devcontainers/features/github-cli:1": {}
+	},
+	"containerEnv": {
+		"GH_PAGER": ""
+	},
+	// "forwardPorts": [3000, 5432],
+	"postCreateCommand": {
+		"claude": "npm install -g @anthropic-ai/claude-code"
+	},
+	// "customizations": {},
+	"remoteUser": "node",
+	"mounts": [
+		"source=claude-code-bashhistory-${devcontainerId},target=/commandhistory,type=volume",
+		"source=~/.claude,target=/home/node/.claude,type=bind,consistency=cached,readonly",
+		"source=/etc/localtime,target=/etc/localtime,type=bind,consistency=cached,readonly"
+	]
+}
